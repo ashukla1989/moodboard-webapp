@@ -39,9 +39,9 @@ async function getInfo(url) {
             contentType: 'text'
         })
 
-        title = parsed.title
-        description = parsed.excerpt
-        preview = parsed.lead_image_url
+        title = parsed.title || url
+        description = parsed.excerpt || ""
+        preview = parsed.lead_image_url || ""
         type = 'website'
     }
     else if (contentType.startsWith("image")) {
