@@ -11,12 +11,22 @@
 </template>
 
 <script>
+import * as Sentry from "@sentry/browser";
+
 export default {
   methods: {
     async signInWithGoogle() {
-      var provider = new this.$firebase.auth.GoogleAuthProvider();
-      await this.$auth.signInWithPopup(provider);
-      this.$router.push("/app");
+      try {
+        var provider = new this.$firebase.auth.GoogleAuthProvider();
+        await this.$auth.signInWithPopup(provider);
+        this.$router.push("/app");
+      } catch (error) {
+        if (error.code !== "auth/popup-closed-by-user") {
+          Sentry.captureException(error);
+        } else {
+          alert("You closed the popup. Try again");
+        }
+      }
     }
   }
 };
