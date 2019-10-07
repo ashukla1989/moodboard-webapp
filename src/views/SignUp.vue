@@ -11,6 +11,8 @@
 </template>
 
 <script>
+import * as Sentry from "@sentry/browser";
+
 export default {
   methods: {
     async signUpWithGoogle() {
