@@ -15,6 +15,7 @@ router.get("/screenshot", async (req, res) => {
         }
     }
     catch (error) {
+        console.error(error)
         res.sendStatus(500)
     }
 })
@@ -32,6 +33,7 @@ router.get("/info", async (req, res) => {
         }
     }
     catch (error) {
+        console.error(error)
         res.sendStatus(500)
     }
 })

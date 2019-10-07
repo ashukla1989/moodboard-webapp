@@ -16,6 +16,8 @@ function parseURL(url) {
 
 async function getInfo(url) {
 
+    url = encodeURI(url)
+
     var parsedURL = parseURL(url);
 
     if (!parsedURL || !parsedURL.protocol.startsWith('http')) {
