@@ -1,6 +1,7 @@
 import firebase from 'firebase/app'
 import 'firebase/auth'
 import 'firebase/firestore'
+import 'firebase/analytics'
 
 Vue.config.productionTip = false
 
@@ -47,6 +48,8 @@ firebase.initializeApp({
   appId: "1:247714230127:web:b8e9fb2893f2c0bbc6c29a",
   measurementId: "G-C0MC8SNSLK"
 });
+
+firebase.analytics()
 
 const unsubscribe = firebase.auth().onAuthStateChanged((auth) => {
   unsubscribe()
